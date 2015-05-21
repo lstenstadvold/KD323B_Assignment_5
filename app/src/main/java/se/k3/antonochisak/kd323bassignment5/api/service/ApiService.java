@@ -8,6 +8,7 @@ import retrofit.http.Headers;
 import retrofit.http.Query;
 import se.k3.antonochisak.kd323bassignment5.api.model.ApiResponse;
 import se.k3.antonochisak.kd323bassignment5.api.model.RootApiResponse;
+import se.k3.antonochisak.kd323bassignment5.fragments.NewFragment;
 
 import static se.k3.antonochisak.kd323bassignment5.helpers.StaticHelpers.TRAKT_API_KEY;
 import static se.k3.antonochisak.kd323bassignment5.helpers.StaticHelpers.TRAKT_API_VERSION;
@@ -27,6 +28,7 @@ public interface ApiService {
     void getPopular(@Query("extended") String extended, Callback<List<ApiResponse>> callback);
 
     @Headers({TRAKT_CONTENT_TYPE, TRAKT_API_KEY, TRAKT_API_VERSION})
-    @GET("PUT_URL_HERE") // unfinished url, go to http://docs.trakt.apiary.io/ and find the trending-url
+    @GET("/movies/trending" + pagination) // unfinished url, go to http://docs.trakt.apiary.io/ and find the trending-url
+            //now I finished it, hope it's the right one
     void getTrending(@Query("extended") String extended, Callback<List<RootApiResponse>> callback);
 }
